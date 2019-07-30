@@ -32,7 +32,7 @@ public class Version implements CommandBase {
 
         System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
                 "Version 1.1.0\n" +
-                "Java version must be greater than 1.8");
+                "Java version must be greater than 1.8\n");
         return 0;
     }
 }

@@ -36,7 +36,6 @@ public class Base {
 
     public static void handle(String[] args) {
 
-        System.out.println(args.length);
         try {
             Class filterClass;
             if (args.length == 0)
@@ -44,7 +43,6 @@ public class Base {
             else filterClass = primList.get(args[0]);
             CommandBase filterBase = (CommandBase) filterClass.newInstance();
             int resCode = filterBase.resInfo(args);
-            System.out.print("\n"+(resCode == 0 ? "success" : (resCode == -1 ? "fault" : "warning")));
         } catch (Exception e) {
             System.out.print("\t命令或参数错误, -help 查看命令详细");
         } finally {

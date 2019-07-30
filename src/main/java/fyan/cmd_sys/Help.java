@@ -30,32 +30,25 @@ import fyan.base.CommandBase;
 public class Help implements CommandBase {
 
     public int resInfo(String[] args) {
-        System.out.print( "\t-h 或 -help \n" +
-                "\t\t显示命令使用帮助\n" +
+        System.out.print( "\t -a | --append [pre/suf] <constName> 修改文件前缀或后缀\n" +
+                "\t \n" +
+                "\t -c | --create [total] <constName> [进值+步长+位数] <a/d> 创建及命名文件夹\n" +
+                "\t \n" +
+                "\t -c | --create -l [dictionaryName...] 创建文件夹以常量的方式\n" +
+                "\t \n" +
+                "\t -r | --replace [regex] [replacement] 正则修改文件名\n" +
+                "\t \n" +
+                "\t -s | --Substr <beginIndex> [endIndex] 截取文件名\n" +
                 "\n" +
-                "\t| grep <正则表达式>\n" +
-                "\t\t以下所有命令尾部都可加上此命令做正则筛选\n" +
+                "\t -f | --finger <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName> 以指定算法计算文件摘要\n" +
                 "\n" +
-                "\t| limit <个数> \n" +
-                "\t\t以下所有命令尾部都可加上此命令做指定个数选择\n" +
+                "\t -f | --finger -c|--compared <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName> <fingerPrint> 对比摘要，文件防篡改\n" +
                 "\n" +
-                "\t-c or -create <文件夹个数> [命名规则](默认以数字从0开始) \n" +
-                "\t\t批量创建文件夹。命名规则:{常量}[变量][进值][位数]\n" +
+                "\t -d | --download <url> [文件名] url链接下载文件\n" +
                 "\n" +
-                "\t-m or -modify [pre/suf] [命名规则](默认以数字从0开始) \n" +
-                "\t\t批量修改文件名前缀或后缀。\n" +
+                "\t -h | --help 命令帮助\n" +
                 "\n" +
-                "\t-s or -substring <beginIndex> [endIndex] \n" +
-                "\t\t切割文件名，删掉指定文件名字符索引段。endIndex缺省文件名长度\n" +
-                "\n" +
-                "\t-r or -replace [regex] [replacement] \n" +
-                "\t\t切割文件名，删掉指定文件名字符索引段。endIndex缺省文件名长度\n" +
-                "\n" +
-                "\t-lc or -lower [regex] [replacement] \n" +
-                "\t\t文件名转小写\n" +
-                "\t\t\n" +
-                "\t-uc or -up [regex] [replacement] \n" +
-                "\t\t文件名转大写");
+                "\t -v | --version 版本");
         return 0;
     }
 }

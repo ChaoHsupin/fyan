@@ -55,4 +55,12 @@ Java version must be greater than 1.8
  -d | --download <url> [文件名] url链接下载文件
 ```
 
+#### 其它
+```cmd
+ -h | --help 命令帮助
+
+ -v | --version 版本
+```
+
+
 

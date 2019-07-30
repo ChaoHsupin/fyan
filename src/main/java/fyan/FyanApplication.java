@@ -25,12 +25,14 @@
 package fyan;
 
 import fyan.base.Base;
+import fyan.cmd_down.Down;
 import fyan.cmd_secr.*;
 import fyan.cmd_file.Append;
 import fyan.cmd_file.Create;
 import fyan.cmd_file.Replace;
 import fyan.cmd_file.Substr;
 import fyan.cmd_sys.Help;
+import fyan.cmd_sys.Version;
 
 import static fyan.base.Base.primList;
 
@@ -46,9 +48,13 @@ public class FyanApplication {
         primList.put("-r", Replace.class);
         primList.put("--replace", Replace.class);
         primList.put("-a", Append.class);
-        primList.put("-append", Append.class);
+        primList.put("--append", Append.class);
         primList.put("-f", Fingerprint.class);
-        primList.put("--finger", Fingerprint.class);
+        primList.put("-finger", Fingerprint.class);
+        primList.put("-d", Down.class);
+        primList.put("-down", Down.class);
+        primList.put("-v", Version.class);
+        primList.put("--version", Version.class);
     }
 
     public static String LOCAL_PATH;
@@ -56,13 +62,9 @@ public class FyanApplication {
 
     public static void main(String[] args) {
 
-        for (String s : args)
-            System.out.println(s);
-
-        System.out.println(args.length);
         LOCAL_PATH = args[0] + "\\";
         String[] command;
-        if (args.length>=2&&"grep".equals(args[args.length - 2])) {
+        if (args.length >= 2 && "grep".equals(args[args.length - 2])) {
             REGEX = args[args.length - 1];
             command = new String[args.length - 3];
         } else
