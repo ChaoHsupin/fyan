@@ -2,6 +2,5 @@
 .idea
 /out
 /target
-/src/main/java/META-INF
-/src/main/java/fyan/Test.java
+/yan-source/main/java/META-INF
 fyan.iml

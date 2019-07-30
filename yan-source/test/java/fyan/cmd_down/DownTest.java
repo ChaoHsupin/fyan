@@ -22,20 +22,16 @@
  * SOFTWARE.
  */
 
-package fyan;
+package fyan.cmd_down;
 
-import fyan.units.BinaryConver;
+import org.junit.jupiter.api.Test;
 
-public class Test {
+import static org.junit.jupiter.api.Assertions.*;
 
-    public static void main(String[] args) {
+class DownTest {
 
-        String text="10+3+100";
-        String[] namingRules=text.split("\\+");
+    @Test
+    void resInfo() {
 
-
-
-//        System.out.println(new BinaryConver().transform(18,10,3));
-        System.out.println(new BinaryConver().transform(0,16,4));
     }
 }
