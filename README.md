@@ -1,7 +1,7 @@
 <div align="center">
 <H1>fyan 命令行工具</H1>
   <img alt="GitHub release" src="https://img.shields.io/badge/java-%3E%3D1.8-blue">
-  <img alt="GitHub release" src="https://img.shields.io/github/release-pre/BegoniaGit/fyan">
+  <img alt="GitHub release" src="https://img.shields.io/github/release/BegoniaGit/fyan">
 <a href="https://github.com/BegoniaGit/fyan/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/BegoniaGit/fyan"></a>
 </div>
 
@@ -36,7 +36,7 @@ java文件顺理成章的收到了用户的参数信息，于是在java代码中
 ```cmd
  命令尾部都可加上 grep [regex]做正则筛选
 
- -a | --append [pre/suf] <constName> 修改文件前缀或后缀
+ -a | --append [pre|suf] <constName> 修改文件前缀或后缀
  
  -c | --create [total] <constName> [进值+步长+位数] <a/d> 创建及命名文件夹
  
