@@ -1,0 +1,7 @@
+# I Write
+.idea
+/out
+/target
+/src/main/java/META-INF
+/src/main/java/fyan/Test.java
+fyan.iml
