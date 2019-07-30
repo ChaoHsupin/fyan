@@ -83,7 +83,7 @@ public class Fingerprint implements CommandBase {
             byte[] fileBytes = readFileToByteArray(file);
             MessageDigest messageDigest = MessageDigest.getInstance(Arith);
             messageDigest.update(fileBytes);
-            System.out.print("file length:  " + fileBytes.length);
+            System.out.print("指纹:  " + fileBytes.length);
             String result = byteArrayToHexString(messageDigest.digest());
             return result;
         } catch (Exception e) {
