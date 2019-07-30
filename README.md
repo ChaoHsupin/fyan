@@ -1,7 +1,7 @@
 <H1>fyan 命令行工具</H1>
 <div align="center">
   <img alt="GitHub release" src="https://img.shields.io/badge/java-%3E%3D1.8-blue">
-  <img alt="GitHub release" src="https://img.shields.io/github/release-pre/BegoniaGit/fyan">
+  <img alt="GitHub release" src="https://img.shields.io/github/release/BegoniaGit/fyan">
 <a href="https://github.com/BegoniaGit/fyan/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/BegoniaGit/fyan"></a>
 </div>
 
