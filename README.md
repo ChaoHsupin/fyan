@@ -31,7 +31,7 @@ Java version must be greater than 1.8
 ```cmd
  命令尾部都可加上 grep [regex]做正则筛选
 
- -a | --append [pre/suf] <constName> 修改文件前缀或后缀
+ -a | --append [pre|suf] <constName> 修改文件前缀或后缀
  
  -c | --create [total] <constName> [进值+步长+位数] <a/d> 创建及命名文件夹
  
