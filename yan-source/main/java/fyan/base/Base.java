@@ -24,7 +24,6 @@
 
 package fyan.base;
 
-import fyan.base.CommandBase;
 import fyan.cmd_sys.Version;
 
 import java.util.HashMap;
@@ -32,17 +31,25 @@ import java.util.Map;
 
 public class Base {
 
-    public static Map<String, Class> primList = new HashMap<String, Class>();
+    //m
+    public static Map<String, Class> primList = new HashMap<String, Class>(32);
 
-    public static void handle(String[] args) {
+    public static void handle(String... args) {
 
         try {
             Class filterClass;
+
+            //命令判误
             if (args.length == 0)
                 filterClass = Version.class;
             else filterClass = primList.get(args[0]);
+
+            //反射实例化命令
             CommandBase filterBase = (CommandBase) filterClass.newInstance();
+
+            //执行命令
             int resCode = filterBase.resInfo(args);
+
         } catch (Exception e) {
             System.out.print("\t命令或参数错误, -help 查看命令详细");
         } finally {

@@ -38,6 +38,7 @@ import static fyan.base.Base.primList;
 
 public class FyanApplication {
 
+    //注册所有指令对应的类文件
     static {
         primList.put("-h", Help.class);
         primList.put("--help", Help.class);
@@ -57,10 +58,22 @@ public class FyanApplication {
         primList.put("--version", Version.class);
     }
 
+    //用户执行命令的路径
     public static String LOCAL_PATH;
+
+    //命令中的正则表达式
     public static String REGEX;
 
-    public static void main(String[] args) {
+
+    public static void main(String... args) {
+
+        Base.handle(filterCommand(args));
+
+    }
+
+
+    //提取命令中的路径和正则信息
+    private static String[] filterCommand(String... args) {
 
         LOCAL_PATH = args[0] + "\\";
         String[] command;
@@ -72,6 +85,7 @@ public class FyanApplication {
 
         for (int i = 0; i < command.length; i++)
             command[i] = args[i + 1];
-        Base.handle(command);
+        return command;
+
     }
 }

@@ -37,7 +37,6 @@ public class Append {
         String local = args[1];
         String constName = args[2];
 
-
         FileFilter.fileDeal((child, currentName) -> {
             currentName = local.equals("pre") ? constName + currentName : currentName + constName;
             child.renameTo(new File(FyanApplication.LOCAL_PATH + currentName));
