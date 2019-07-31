@@ -8,7 +8,6 @@
 </div>
 
 **language choice**
-- [English](#English Document)
 - [简体中文](#中文文档)
 
 # English Document
