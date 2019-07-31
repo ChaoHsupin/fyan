@@ -1,9 +1,9 @@
 
 <H1>Fyan command line tool</H1>
-<div align="center">
- <img alt="GitHub release" src="https://img.shields.io/badge/java-%3E%3D1.8-red">
-  <img alt="GitHub release" src="https://img.shields.io/github/release/BegoniaGit/fyan">
-<img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/BegoniaGit/fyan/total">
+<div >
+ <img alt="GitHub release" src="https://img.shields.io/badge/java-%3E%3D1.8-red">&nbsp;
+  <img alt="GitHub release" src="https://img.shields.io/github/release/BegoniaGit/fyan">&nbsp;
+<img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/BegoniaGit/fyan/total">&nbsp;
 <a href="https://github.com/BegoniaGit/fyan/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/BegoniaGit/fyan"></a>
 </div>
 
