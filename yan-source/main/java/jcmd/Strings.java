@@ -22,16 +22,45 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd;
 
-import fyan.base.CommandBase;
+import java.util.List;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+public class Strings {
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
+    public static boolean isStringEmpty(String s) {
+        return s == null || "".equals(s);
+    }
+
+    public static boolean startsWith(String s, String with, boolean isCaseSensitive) {
+        if (isCaseSensitive)
+            return s.startsWith(with);
+        else {
+            return s.toLowerCase().startsWith(with.toLowerCase());
+        }
+    }
+
+    public static String join(String delimiter, List<String> args) {
+        StringBuilder builder = new StringBuilder();
+
+        for (int i = 0; i < args.size(); i++) {
+            builder.append(args.get(i));
+
+            if (i + 1 < args.size())
+                builder.append(delimiter);
+        }
+        return builder.toString();
+    }
+
+    public static String join(String delimiter, Object[] args) {
+        StringBuilder builder = new StringBuilder();
+
+        for (int i = 0; i < args.length; i++) {
+            builder.append(args[i]);
+
+            if (i + 1 < args.length)
+                builder.append(delimiter);
+        }
+        return builder.toString();
     }
 }

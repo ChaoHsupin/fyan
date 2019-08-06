@@ -22,16 +22,27 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd.converters;
 
-import fyan.base.CommandBase;
+import jcmd.ParameterException;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+/**
+ * Convert a string to a float.
+ *
+ * @author acornejo
+ */
+public class FloatConverter extends BaseConverter<Float> {
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
+  public FloatConverter(String optionName) {
+    super(optionName);
+  }
+
+  public Float convert(String value) {
+    try {
+      return Float.parseFloat(value);
+    } catch(NumberFormatException ex) {
+      throw new ParameterException(getErrorString(value, "a float"));
     }
+  }
+
 }

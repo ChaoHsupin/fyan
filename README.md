@@ -1,4 +1,5 @@
-<H1>fyan 命令行工具</H1>
+
+<H1>Fyan command line tool</H1>
 <div align="center">
  <img alt="GitHub release" src="https://img.shields.io/badge/java-%3E%3D1.8-red">
   <img alt="GitHub release" src="https://img.shields.io/github/release/BegoniaGit/fyan">
@@ -6,6 +7,75 @@
 <a href="https://github.com/BegoniaGit/fyan/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/BegoniaGit/fyan"></a>
 </div>
 
+**language choice**
+- [English](#English Document)
+- [简体中文](#中文文档)
+
+# English Document
+
+
+## Brief
+- The commonly used file name batching gadget has only been written a bit today, and there are still many shortcomings.
+- The source code has been passed to GitHub. Everyone can point out code defects, post an issue, and submit their own code.
+
+
+## Operating environment
+- Windows or Linux
+- Java runtime environment (jre) version 1.8 and above
+
+## Installation
+1. First download the distribution package on GitHub
+2. Unzip the file and configure the unzipped file bin path into the user environment variable.
+3. Run the CMD window in any directory and enter yan or yan -v. The following message appears indicating that the environment is configured correctly.
+```cmd
+C:\yan -v
+Welcome to the folder processing tool from yanyan.site
+Version 1.1.0
+Java version must be greater than 1.8
+
+```
+## Operating mechanism
+Take Windows as an example. After configuring the environment variable, enter yan -v in the CMD window of any path. The system will find the yan.bat file in the environment variable and execute it. In yan.bat
+The file is mainly a command to run the jar file. The parameters that follow in the CMD window will be transferred to the parameter list of the java executable file, so that a jar file is run.
+The java file logically receives the user's parameter information, so in the java code through a series of operations such as logic control to complete the execution of the entire command.
+
+##Command Interpretation
+
+#### Folder Processing
+```cmd
+ You can add grep [regex] to the regular tail of the command.
+
+ -a | --append [pre|suf] <constName> Modify file prefix or suffix
+ 
+ -c | --create [total] <constName> [value + step + digits] <a/d> Create and name a folder
+ 
+ -c | --create -l [dictionaryName...] Create a folder as a constant
+ 
+ -r | --replace [regex] [replacement] Regularly modify the file name
+ 
+ -s | --Substr <beginIndex> [endIndex] Intercept file name
+```
+
+
+#### Summary Algorithm
+```cmd
+ -f | --finger <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName> Calculates the file summary with the specified algorithm
+
+ -f | --finger -c|--compared <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName> <fingerPrint> Contrast summary, file tamper resistance
+```
+
+#### download file
+```cmd
+ -d | --download <url> [filename] url link download file
+```
+
+#### 其它
+```cmd
+ -h | --help command help
+
+ -v | --version version
+```
+# 中文文档
 ## 简述
 - 常用的文件名批处理小工具,今天才写了一点,还有很多不足。
 - 源码已传到GitHub,大家都可指出代码缺陷,发表issue,提交自己的代码。

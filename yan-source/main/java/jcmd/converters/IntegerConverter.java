@@ -22,16 +22,27 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd.converters;
 
-import fyan.base.CommandBase;
+import jcmd.ParameterException;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+/**
+ * Convert a string to an integer.
+ * 
+ * @author cbeust
+ */
+public class IntegerConverter extends BaseConverter<Integer> {
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
+  public IntegerConverter(String optionName) {
+    super(optionName);
+  }
+
+  public Integer convert(String value) {
+    try {
+      return Integer.parseInt(value);
+    } catch(NumberFormatException ex) {
+      throw new ParameterException(getErrorString(value, "an integer"));
     }
+  }
+
 }

@@ -22,16 +22,14 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd.converters;
 
-import fyan.base.CommandBase;
+import java.util.List;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
-
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
-    }
+/**
+ * Convert a string representing several parameters (e.g. "a,b,c" or "d/e/f") into a
+ * list of arguments ([a,b,c] and [d,e,f]).
+ */
+public interface IParameterSplitter {
+  List<String> split(String value);
 }

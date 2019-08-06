@@ -22,16 +22,29 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd;
 
-import fyan.base.CommandBase;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+import static java.lang.annotation.ElementType.FIELD;
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
-    }
+/**
+ * <p>When applied to a field all of its child fields annotated
+ * with {@link Parameter} will be included during arguments
+ * parsing.</p>
+ *
+ * <p>Mainly useful when creating complex command based CLI interfaces,
+ * where several commands can share a set of arguments, but using
+ * object inheritance is not enough, due to no-multiple-inheritance
+ * restriction. Using {@link ParametersDelegate} any number of
+ * command sets can be shared by using composition pattern.</p>
+ *
+ * <p>Delegations can be chained (nested).</p>
+ * 
+ * @author rodionmoiseev
+ */
+@Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
+@Target({ FIELD })
+public @interface ParametersDelegate {
 }

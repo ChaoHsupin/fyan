@@ -22,16 +22,32 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd;
 
-import fyan.base.CommandBase;
+/**
+ * Thrown when a command was expected.
+ *
+ * @author Cedric Beust <cedric@beust.com>
+ */
+@SuppressWarnings("serial")
+public class MissingCommandException extends ParameterException {
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+  /**
+   * the command passed by the user.
+   */
+  private final String unknownCommand;
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
-    }
+  public MissingCommandException(String message) {
+    this(message, null);
+  }
+
+  public MissingCommandException(String message, String command) {
+    super(message);
+    this.unknownCommand = command;
+  }
+
+  public String getUnknownCommand() {
+    return unknownCommand;
+  }
+
 }

@@ -22,16 +22,31 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd.converters;
 
-import fyan.base.CommandBase;
+import jcmd.ParameterException;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+import java.net.MalformedURLException;
+import java.net.URL;
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
-    }
+/**
+ * Convert a string into a URI.
+ * 
+ * @author samvv
+ */
+public class URLConverter extends BaseConverter<URL> {
+
+	public URLConverter(String optionName) {
+		super(optionName);
+	}
+
+	public URL convert(String value) {
+		try {
+			return new URL(value);
+		} catch (MalformedURLException e) {
+			throw new ParameterException(
+					getErrorString(value, "a RFC 2396 and RFC 2732 compliant URL"));
+			
+		}
+	}
 }

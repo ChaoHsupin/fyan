@@ -67,6 +67,7 @@ public class FyanApplication {
 
     public static void main(String... args) {
 
+
         Base.handle(filterCommand(args));
 
     }

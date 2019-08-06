@@ -22,16 +22,19 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd.converters;
 
-import fyan.base.CommandBase;
+import jcmd.IStringConverter;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+/**
+ * Default value for a converter when none is specified.
+ * 
+ * @author cbeust
+ */
+public class NoConverter implements IStringConverter<String> {
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
-    }
+  public String convert(String value) {
+    throw new UnsupportedOperationException();
+  }
+
 }

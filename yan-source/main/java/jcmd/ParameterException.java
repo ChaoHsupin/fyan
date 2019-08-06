@@ -22,16 +22,41 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd;
 
-import fyan.base.CommandBase;
+/**
+ * The main exception that JCommand will throw when something goes wrong while
+ * parsing parameters.
+ *
+ * @author Cedric Beust <cedric@beust.com>
+ */
+@SuppressWarnings("serial")
+public class ParameterException extends RuntimeException {
+  public ParameterException(Throwable t) {
+    super(t);
+  }
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+  public ParameterException(String string) {
+    super(string);
+  }
+  
+  public ParameterException(String string, Throwable t) {
+      super(string, t);
+  }
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
+  private JCommander jc;
+
+  public void setJCommander(JCommander jc) {
+    this.jc = jc;
+  }
+
+  public JCommander getJCommander() {
+    return jc;
+  }
+
+  public void usage() {
+    if (jc != null) {
+      jc.usage();
     }
+  }
 }

@@ -22,16 +22,20 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd.internal;
 
-import fyan.base.CommandBase;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+public class Sets {
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
-    }
+  public static <K> Set<K> newHashSet() {
+    return new HashSet<>();
+  }
+
+  public static <K> Set<K> newLinkedHashSet() {
+    return new LinkedHashSet<>();
+  }
+
 }

@@ -22,16 +22,23 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd;
 
-import fyan.base.CommandBase;
+/**
+ * The class used to validate parameters.
+ *
+ * @author Cedric Beust <cedric@beust.com>
+ */
+public interface IParameterValidator {
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+  /**
+   * Validate the parameter.
+   *
+   * @param name The name of the parameter (e.g. "-host").
+   * @param value The value of the parameter that we need to validate
+   *
+   * @throws ParameterException Thrown if the value of the parameter is invalid.
+   */
+  void validate(String name, String value) throws ParameterException;
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
-    }
 }

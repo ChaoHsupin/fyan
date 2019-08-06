@@ -22,16 +22,48 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd.internal;
 
-import fyan.base.CommandBase;
+import jcmd.ParameterException;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+import java.io.PrintWriter;
+import java.lang.reflect.Method;
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
+public class JDK6Console implements Console {
+
+  private Object console;
+
+  private PrintWriter writer;
+
+  public JDK6Console(Object console) throws Exception {
+    this.console = console;
+    Method writerMethod = console.getClass().getDeclaredMethod("writer");
+    writer = (PrintWriter) writerMethod.invoke(console);
+  }
+
+  public void print(String msg) {
+    writer.print(msg);
+  }
+
+  public void println(String msg) {
+    writer.println(msg);
+  }
+
+  public char[] readPassword(boolean echoInput) {
+    try {
+      writer.flush();
+      Method method;
+      if (echoInput) {
+          method = console.getClass().getDeclaredMethod("readLine");
+          return ((String) method.invoke(console)).toCharArray();
+      } else {
+          method = console.getClass().getDeclaredMethod("readPassword");
+          return (char[]) method.invoke(console);
+      }
     }
+    catch (Exception e) {
+      throw new ParameterException(e);
+    }
+  }
+
 }

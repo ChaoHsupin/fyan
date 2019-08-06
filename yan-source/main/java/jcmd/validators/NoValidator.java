@@ -22,16 +22,20 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd.validators;
 
-import fyan.base.CommandBase;
+import jcmd.IParameterValidator;
+import jcmd.ParameterException;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+/**
+ * This is the default value of the validateWith attribute.
+ *
+ * @author Cedric Beust <cedric@beust.com>
+ */
+public class NoValidator implements IParameterValidator {
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
-    }
+  public void validate(String parameterName, String parameterValue)
+      throws ParameterException {
+  }
+
 }

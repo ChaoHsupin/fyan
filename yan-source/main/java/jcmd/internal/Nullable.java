@@ -22,16 +22,15 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd.internal;
 
-import fyan.base.CommandBase;
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.ElementType.PARAMETER;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
-    }
+@Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
+@Target({FIELD, PARAMETER})
+public @interface Nullable {
 }

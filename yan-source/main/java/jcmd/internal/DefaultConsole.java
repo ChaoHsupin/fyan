@@ -22,16 +22,45 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd.internal;
 
-import fyan.base.CommandBase;
+import jcmd.ParameterException;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
+public class DefaultConsole implements Console {
+  private final PrintStream target;
+
+  public DefaultConsole(PrintStream target) {
+    this.target = target;
+  }
+
+  public DefaultConsole() {
+    this.target = System.out;
+  }
+
+  public void print(String msg) {
+    target.print(msg);
+  }
+
+  public void println(String msg) {
+    target.println(msg);
+  }
+
+  public char[] readPassword(boolean echoInput) {
+    try {
+      // Do not close the readers since System.in should not be closed
+      InputStreamReader isr = new InputStreamReader(System.in);
+      BufferedReader in = new BufferedReader(isr);
+      String result = in.readLine();
+      return result.toCharArray();
     }
+    catch (IOException e) {
+      throw new ParameterException(e);
+    }
+  }
+
 }

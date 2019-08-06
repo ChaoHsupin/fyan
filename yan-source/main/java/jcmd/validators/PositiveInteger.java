@@ -22,16 +22,25 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd.validators;
 
-import fyan.base.CommandBase;
+import jcmd.IParameterValidator;
+import jcmd.ParameterException;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+/**
+ * A validator that makes sure the value of the parameter is a positive integer.
+ *
+ * @author Cedric Beust <cedric@beust.com>
+ */
+public class PositiveInteger implements IParameterValidator {
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
+  public void validate(String name, String value)
+      throws ParameterException {
+    int n = Integer.parseInt(value);
+    if (n < 0) {
+      throw new ParameterException("Parameter " + name
+          + " should be positive (found " + value +")");
     }
+  }
+
 }

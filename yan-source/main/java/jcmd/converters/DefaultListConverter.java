@@ -22,16 +22,39 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd.converters;
 
-import fyan.base.CommandBase;
+import jcmd.IStringConverter;
+import jcmd.internal.Lists;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+import java.util.List;
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
+/**
+ * A converter to obtain a list of elements.
+ * @param <T> the element type
+ * @author simon04
+ */
+public class DefaultListConverter<T> implements IStringConverter<List<T>> {
+
+  private final IParameterSplitter splitter;
+  private final IStringConverter<T> converter;
+
+  /**
+   * Constructs a new converter.
+   * @param splitter to split value into list of arguments
+   * @param converter to convert list of arguments to target element type
+   */
+  public DefaultListConverter(IParameterSplitter splitter, IStringConverter<T> converter) {
+    this.splitter = splitter;
+    this.converter = converter;
+  }
+
+  @Override
+  public List<T> convert(String value) {
+    List<T> result = Lists.newArrayList();
+    for (String param : splitter.split(value)) {
+      result.add(converter.convert(param));
     }
+    return result;
+  }
 }

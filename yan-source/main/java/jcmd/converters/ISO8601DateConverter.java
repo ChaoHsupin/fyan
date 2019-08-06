@@ -22,16 +22,33 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd.converters;
 
-import fyan.base.CommandBase;
+import jcmd.ParameterException;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
+/**
+ * Converts a String to a Date.
+ * TODO Modify to work with all valid ISO 8601 date formats (currently only works with yyyy-MM-dd).
+ *
+ * @author Angus Smithson
+ */
+public class ISO8601DateConverter extends BaseConverter<Date> {
+
+  private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
+
+  public ISO8601DateConverter(String optionName) {
+    super(optionName);
+  }
+
+  public Date convert(String value) {
+    try {
+      return DATE_FORMAT.parse(value);
+    } catch (ParseException pe) {
+      throw new ParameterException(getErrorString(value, String.format("an ISO-8601 formatted date (%s)", DATE_FORMAT.toPattern())));
     }
+  }
 }

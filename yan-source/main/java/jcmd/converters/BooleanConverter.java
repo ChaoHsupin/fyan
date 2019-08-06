@@ -22,16 +22,27 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd.converters;
 
-import fyan.base.CommandBase;
+import jcmd.ParameterException;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+/**
+ * Converts a string to a boolean.
+ * 
+ * @author cbeust
+ */
+public class BooleanConverter extends BaseConverter<Boolean> {
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
+  public BooleanConverter(String optionName) {
+    super(optionName);
+  }
+
+  public Boolean convert(String value) {
+    if ("false".equalsIgnoreCase(value) || "true".equalsIgnoreCase(value)) {
+      return Boolean.parseBoolean(value);
+    } else {
+      throw new ParameterException(getErrorString(value, "a boolean"));
     }
+  }
+
 }

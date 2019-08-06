@@ -22,16 +22,40 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd;
 
-import fyan.base.CommandBase;
+/**
+ * A formatter for help messages.
+ */
+public interface IUsageFormatter {
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+    /**
+     * Display the usage for this command.
+     */
+    void usage(String commandName);
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
-    }
+    /**
+     * Store the help for the command in the passed string builder.
+     */
+    void usage(String commandName, StringBuilder out);
+
+    /**
+     * Store the help in the passed string builder.
+     */
+    void usage(StringBuilder out);
+
+    /**
+     * Store the help for the command in the passed string builder, indenting every line with "indent".
+     */
+    void usage(String commandName, StringBuilder out, String indent);
+
+    /**
+     * Stores the help in the passed string builder, with the argument indentation.
+     */
+    void usage(StringBuilder out, String indent);
+
+    /**
+     * @return the description of the argument command
+     */
+    String getCommandDescription(String commandName);
 }

@@ -22,16 +22,15 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd.converters;
 
-import fyan.base.CommandBase;
+import java.util.Arrays;
+import java.util.List;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+public class CommaParameterSplitter implements IParameterSplitter {
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
-    }
+  public List<String> split(String value) {
+    return Arrays.asList(value.split(","));
+  }
+
 }

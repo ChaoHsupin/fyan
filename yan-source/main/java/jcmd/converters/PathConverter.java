@@ -22,16 +22,43 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd.converters;
 
-import fyan.base.CommandBase;
+import jcmd.ParameterException;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+import java.nio.file.InvalidPathException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
+/**
+ * Convert a string into a path.
+ *
+ * @author samvv
+ */
+public class PathConverter extends BaseConverter<Path> {
+
+  public PathConverter(String optionName) {
+    super(optionName);
+  }
+
+  public Path convert(String value) {
+    try {
+      return Paths.get(value);
+    } catch (InvalidPathException e) {
+      String encoded = escapeUnprintable(value);
+      throw new ParameterException(getErrorString(encoded, "a path"));
     }
+  }
+
+  private static String escapeUnprintable(String value) {
+    StringBuilder bldr = new StringBuilder();
+    for (char c: value.toCharArray()) {
+        if (c < ' ') {
+            bldr.append("\\u").append(String.format("%04X", (int) c));
+        } else {
+            bldr.append(c);
+        }
+    }
+    return bldr.toString();
+  }
 }

@@ -22,16 +22,29 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd.converters;
 
-import fyan.base.CommandBase;
+import jcmd.IStringConverter;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+/**
+ * Base class for converters that store the name of the option.
+ * 
+ * @author cbeust
+ */
+public abstract class BaseConverter<T> implements IStringConverter<T> {
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
-    }
+  private String optionName;
+
+  public BaseConverter(String optionName) {
+    this.optionName = optionName;
+  }
+
+  public String getOptionName() {
+    return optionName;
+  }
+
+  protected String getErrorString(String value, String to) {
+    return "\"" + getOptionName() + "\": couldn't convert \"" + value + "\" to " + to;
+  }
+
 }

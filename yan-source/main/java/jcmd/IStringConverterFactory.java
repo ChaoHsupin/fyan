@@ -22,16 +22,16 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd;
 
-import fyan.base.CommandBase;
-
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
-
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
-    }
+/**
+ * A factory for IStringConverter. This interface lets you specify your
+ * converters in one place instead of having them repeated all over
+ * your argument classes.
+ *
+ * @author cbeust
+ * @see IStringConverterInstanceFactory
+ */
+public interface IStringConverterFactory {
+  Class<? extends IStringConverter<?>> getConverter(Class<?> forType);
 }

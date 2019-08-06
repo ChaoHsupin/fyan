@@ -30,15 +30,15 @@ import fyan.base.CommandBase;
 public class Help implements CommandBase {
 
     public int resInfo(String[] args) {
-        System.out.print( "\t -a | --append [pre/suf] <constName> 修改文件前缀或后缀\n" +
+        System.out.print( "\t -a | --append [pre|suf] <constName> 修改文件前缀或后缀\n" +
                 "\t \n" +
-                "\t -c | --create [total] <constName> [进值+步长+位数] <a/d> 创建及命名文件夹\n" +
+                "\t -c | --create [total] <constName> [进值+步长+位数] <asc|desc> 创建及命名文件夹\n" +
                 "\t \n" +
                 "\t -c | --create -l [dictionaryName...] 创建文件夹以常量的方式\n" +
                 "\t \n" +
                 "\t -r | --replace [regex] [replacement] 正则修改文件名\n" +
                 "\t \n" +
-                "\t -s | --Substr <beginIndex> [endIndex] 截取文件名\n" +
+                "\t -s | --substr <beginIndex> [endIndex] 截取文件名\n" +
                 "\n" +
                 "\t -f | --finger <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName> 以指定算法计算文件摘要\n" +
                 "\n" +

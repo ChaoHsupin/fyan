@@ -22,16 +22,21 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd.converters;
 
-import fyan.base.CommandBase;
+import jcmd.IStringConverter;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+import java.io.File;
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
-    }
+/**
+ * Convert a string into a file.
+ * 
+ * @author cbeust
+ */
+public class FileConverter implements IStringConverter<File> {
+
+  public File convert(String value) {
+    return new File(value);
+  }
+
 }

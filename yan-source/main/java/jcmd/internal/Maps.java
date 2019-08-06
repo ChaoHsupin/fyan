@@ -22,16 +22,28 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd.internal;
 
-import fyan.base.CommandBase;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+public class Maps {
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
+  public static <K, V> Map<K,V> newHashMap() {
+    return new HashMap<>();
+  }
+
+  public static <K, V> Map<K,V> newLinkedHashMap() {
+    return new LinkedHashMap<>();
+  }
+
+  public static <T> Map<T, T> newHashMap(T... parameters) {
+    Map<T, T> result = Maps.newHashMap();
+    for (int i = 0; i < parameters.length; i += 2) {
+      result.put(parameters[i], parameters[i + 1]);
     }
+    return result;
+  }
+
 }

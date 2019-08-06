@@ -22,16 +22,39 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd.internal;
 
-import fyan.base.CommandBase;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+public class Lists {
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
+    public static <K> List<K> newArrayList() {
+        return new ArrayList<>();
     }
+
+    public static <K> List<K> newArrayList(Collection<K> c) {
+        return new ArrayList<>(c);
+    }
+
+    public static <K> List<K> newArrayList(K... c) {
+      return new ArrayList<>(Arrays.asList(c));
+    }
+
+    public static <K> List<K> newArrayList(int size) {
+        return new ArrayList<>(size);
+    }
+
+    public static <K> LinkedList<K> newLinkedList() {
+        return new LinkedList<>();
+    }
+
+    public static <K> LinkedList<K> newLinkedList(Collection<K> c) {
+        return new LinkedList<>(c);
+    }
+
+
 }

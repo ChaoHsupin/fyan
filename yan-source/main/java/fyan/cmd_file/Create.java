@@ -50,8 +50,8 @@ public class Create implements CommandBase {
     private int create(String[] args) {
 
         String sort = args[args.length - 1];
-        int len = sort.matches("[a|d]") ? args.length - 1 : args.length;
-        sort = sort.matches("[a|d]") ? sort : "a";
+        int len = sort.matches("[(asc)|(desc)]") ? args.length - 1 : args.length;
+        sort = sort.matches("[(asc)|(desc)]") ? sort : "asc";
 
         int fileTotal = Integer.valueOf(args[1]);
 
@@ -65,7 +65,7 @@ public class Create implements CommandBase {
             namingRules[index++] = Integer.valueOf(str);
 
         for (int i = 0; i < fileTotal; i++) {
-            String name = sort == "d" ? BinaryConver.transform(i * namingRules[1], namingRules[0], namingRules[2]) + constName
+            String name = sort == "desc" ? BinaryConver.transform(i * namingRules[1], namingRules[0], namingRules[2]) + constName
                     : constName + BinaryConver.transform(i * namingRules[1], namingRules[0], namingRules[2]);
             File file = new File(FyanApplication.LOCAL_PATH + name);
             file.mkdir();

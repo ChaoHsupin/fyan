@@ -22,16 +22,28 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd.converters;
 
-import fyan.base.CommandBase;
+import jcmd.ParameterException;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+import java.math.BigDecimal;
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
+/**
+ * Converts a String to a BigDecimal.
+ *
+ * @author Angus Smithson
+ */
+public class BigDecimalConverter extends BaseConverter<BigDecimal> {
+
+  public BigDecimalConverter(String optionName) {
+    super(optionName);
+  }
+
+  public BigDecimal convert(String value) {
+    try {
+      return new BigDecimal(value);
+    } catch (NumberFormatException nfe) {
+      throw new ParameterException(getErrorString(value, "a BigDecimal"));
     }
+  }
 }

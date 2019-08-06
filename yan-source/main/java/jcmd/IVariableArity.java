@@ -22,16 +22,19 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd;
 
-import fyan.base.CommandBase;
+/**
+ * Must be implemented by argument classes that contain at least one
+ * \@Parameter with "variableArity = true".
+ */
+public interface IVariableArity {
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
-
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
-    }
+  /**
+   * @param optionName the name of the option to process.
+   * @param options the entire list of options.
+   *
+   * @return how many options were processed.
+   */
+  int processVariableArity(String optionName, String[] options);
 }

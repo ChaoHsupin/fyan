@@ -22,16 +22,18 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd.converters;
 
-import fyan.base.CommandBase;
+import jcmd.IStringConverter;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
-
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
+/**
+ * Converts a String to a char[].
+ * 
+ * @author Gary Gregory
+ */
+public class CharArrayConverter implements IStringConverter<char[]> {
+    
+    public char[] convert(final String value) {
+        return value.toCharArray();
     }
 }

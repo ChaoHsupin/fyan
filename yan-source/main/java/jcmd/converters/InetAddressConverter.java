@@ -22,16 +22,25 @@
  * SOFTWARE.
  */
 
-package fyan.cmd_sys;
+package jcmd.converters;
 
-import fyan.base.CommandBase;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
-//      -v | -version
-public class Version implements CommandBase {
-    public int resInfo(String[] args) {
+import jcmd.IStringConverter;
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
-        return 0;
+/**
+ * Converts {@code String}s to {@code InetAddress}'.
+ */
+public class InetAddressConverter implements IStringConverter<InetAddress> {
+
+    @Override
+    public InetAddress convert(String host) {
+        try {
+            return InetAddress.getByName(host);
+        } catch (UnknownHostException e) {
+            throw new IllegalArgumentException(host, e);
+        }
     }
+
 }
