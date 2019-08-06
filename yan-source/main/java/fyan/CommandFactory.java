@@ -34,8 +34,6 @@ import fyan.cmd_secr.Fingerprint;
 import fyan.cmd_sys.Help;
 import fyan.cmd_sys.Version;
 
-import static fyan.base.Base.primList;
-
 
 //工厂模式创建命令执行对象
 public class CommandFactory {

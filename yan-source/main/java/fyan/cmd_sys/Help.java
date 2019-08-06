@@ -30,7 +30,9 @@ import fyan.base.CommandBase;
 public class Help implements CommandBase {
 
     public int resInfo(String[] args) {
-        System.out.print( "\t -a | --append [pre|suf] <constName> 修改文件前缀或后缀\n" +
+        System.out.print(
+                "\t 修改语句尾部可添加 grep [regex] 做正则筛选\n" +
+                "\t -a | --append [pre|suf] <constName> 修改文件前缀或后缀\n" +
                 "\t \n" +
                 "\t -c | --create [total] <constName> [进值+步长+位数] <asc|desc> 创建及命名文件夹\n" +
                 "\t \n" +

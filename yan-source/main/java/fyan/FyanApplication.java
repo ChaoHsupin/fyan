@@ -24,17 +24,8 @@
 
 package fyan;
 
-import fyan.base.Base;
-import fyan.cmd_down.Down;
-import fyan.cmd_secr.*;
-import fyan.cmd_file.Append;
-import fyan.cmd_file.Create;
-import fyan.cmd_file.Replace;
-import fyan.cmd_file.Substr;
-import fyan.cmd_sys.Help;
+import fyan.base.CommandBase;
 import fyan.cmd_sys.Version;
-
-import static fyan.base.Base.primList;
 
 public class FyanApplication {
 
@@ -49,7 +40,7 @@ public class FyanApplication {
     public static void main(String... args) {
 
 
-        Base.handle(filterCommand(args));
+        handle(filterCommand(args));
 
     }
 
@@ -69,5 +60,25 @@ public class FyanApplication {
             command[i] = args[i + 1];
         return command;
 
+    }
+
+    public static void handle(String... args) {
+
+        try {
+            CommandBase cmd;
+
+            //命令判误
+            if (args.length == 0)
+                cmd = new Version();
+            else cmd = CommandFactory.builder(args[0]);
+
+            //执行命令
+            int resCode = cmd.resInfo(args);
+
+        } catch (Exception e) {
+            System.out.print("\t命令或参数错误, -help 查看命令详细");
+        } finally {
+            System.exit(0);
+        }
     }
 }

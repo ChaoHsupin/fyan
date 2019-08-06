@@ -48,7 +48,7 @@ public class Fingerprint implements CommandBase {
         String countResult=count(Arith, fileName);
         String inputCount=args[4];
 
-        System.out.print("\t校验"+(countResult.equals(inputCount)?"正确":"错误") );
+        System.out.println("校验结果："+(countResult.equals(inputCount)?"正确":"错误") );
 
         return 0;
     }
@@ -57,7 +57,8 @@ public class Fingerprint implements CommandBase {
         String Arith = args[1];
         String fileName = args[2];
 
-        System.out.print(count(Arith, fileName));
+        System.out.println("算法："+Arith);
+        System.out.println("指纹："+count(Arith, fileName));
         return 0;
     }
 
@@ -83,7 +84,6 @@ public class Fingerprint implements CommandBase {
             byte[] fileBytes = readFileToByteArray(file);
             MessageDigest messageDigest = MessageDigest.getInstance(Arith);
             messageDigest.update(fileBytes);
-            System.out.print("指纹:  " + fileBytes.length);
             String result = byteArrayToHexString(messageDigest.digest());
             return result;
         } catch (Exception e) {
