@@ -24,50 +24,61 @@
 
 package fyan;
 
-import fyan.base.Base;
+import fyan.base.CommandBase;
 import fyan.cmd_down.Down;
-import fyan.cmd_secr.*;
 import fyan.cmd_file.Append;
 import fyan.cmd_file.Create;
 import fyan.cmd_file.Replace;
 import fyan.cmd_file.Substr;
+import fyan.cmd_secr.Fingerprint;
 import fyan.cmd_sys.Help;
 import fyan.cmd_sys.Version;
 
 import static fyan.base.Base.primList;
 
-public class FyanApplication {
 
+//工厂模式创建命令执行对象
+public class CommandFactory {
 
-    //用户执行命令的路径
-    public static String LOCAL_PATH;
+    public static CommandBase builder(String cmdPre) {
 
-    //命令中的正则表达式
-    public static String REGEX;
+        CommandBase cmd = null;
 
-
-    public static void main(String... args) {
-
-
-        Base.handle(filterCommand(args));
-
-    }
-
-
-    //提取命令中的路径和正则信息
-    private static String[] filterCommand(String... args) {
-
-        LOCAL_PATH = args[0] + "\\";
-        String[] command;
-        if (args.length >= 2 && "grep".equals(args[args.length - 2])) {
-            REGEX = args[args.length - 1];
-            command = new String[args.length - 3];
-        } else
-            command = new String[args.length - 1];
-
-        for (int i = 0; i < command.length; i++)
-            command[i] = args[i + 1];
-        return command;
-
+        //注册指令
+        switch (cmdPre) {
+            case "-h":
+            case "--help":
+                cmd = new Help();
+                break;
+            case "-c":
+            case "-create":
+                cmd = new Create();
+                break;
+            case "-s":
+            case "-substr":
+                cmd = new Substr();
+                break;
+            case "-r":
+            case "--replace":
+                cmd = new Replace();
+                break;
+            case "-a":
+            case "--append":
+                cmd = new Append();
+                break;
+            case "-f":
+            case "--finger":
+                cmd = new Fingerprint();
+                break;
+            case "-d":
+            case "--down":
+                cmd = new Down();
+                break;
+            case "-v":
+            case "--version":
+                cmd = new Version();
+                break;
+        }
+        return cmd;
     }
 }

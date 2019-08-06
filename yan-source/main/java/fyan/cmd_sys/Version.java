@@ -30,8 +30,10 @@ import fyan.base.CommandBase;
 public class Version implements CommandBase {
     public int resInfo(String[] args) {
 
-        System.out.print("Welcome to the folder processing tool from yanyan.site\n" +
-                "Version 1.1.0\n");
+        System.out.print(
+                "Welcome\n" +
+                "Version 1.1.0\n" +
+                "Java version requirements are greater than 12\n");
         return 0;
     }
 }

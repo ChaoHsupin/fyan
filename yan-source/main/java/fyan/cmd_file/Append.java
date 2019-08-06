@@ -25,13 +25,14 @@
 package fyan.cmd_file;
 
 import fyan.FyanApplication;
+import fyan.base.CommandBase;
 import fyan.base.FileFilter;
 
 import java.io.File;
 import java.io.IOException;
 
 //      -a | -append [pre/suf] <constName>
-public class Append {
+public class Append implements CommandBase {
     public int resInfo(String[] args) throws IOException {
 
         String local = args[1];
