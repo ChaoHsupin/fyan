@@ -24,10 +24,11 @@
 
 package fyan.base;
 
-import java.io.File;
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
-public interface FileNameDealInterface{
+public interface CmdBase {
 
-    void deal(File child, String currentName);
+    int resInfo(String[] args) throws IOException, NoSuchAlgorithmException;
 
 }

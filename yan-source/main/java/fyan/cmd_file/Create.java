@@ -25,7 +25,7 @@
 package fyan.cmd_file;
 
 import fyan.FyanApplication;
-import fyan.base.CommandBase;
+import fyan.base.CmdBase;
 import fyan.units.BinaryConver;
 
 import java.io.File;
@@ -33,7 +33,7 @@ import java.io.IOException;
 
 //      -c | --create [total] <constName> [进值+步长+位数] <a/d>
 //      -c | --create -l [dictionaryName...]
-public class Create implements CommandBase {
+public class Create implements CmdBase {
     public int resInfo(String[] args) throws IOException {
 
         return args[1].equals("-l") ? createList(args) : create(args);

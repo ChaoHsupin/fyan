@@ -25,14 +25,14 @@
 package fyan.cmd_down;
 
 import fyan.FyanApplication;
-import fyan.base.CommandBase;
+import fyan.base.CmdBase;
 import fyan.units.DownUnits;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 
 //      -d | --download <url> [文件名]
-public class Down implements CommandBase {
+public class Down implements CmdBase {
 
     @Override
     public int resInfo(String[] args) throws IOException, NoSuchAlgorithmException {

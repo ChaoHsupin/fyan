@@ -24,7 +24,8 @@
 
 package fyan;
 
-import fyan.base.CommandBase;
+import fyan.base.CmdBase;
+import fyan.base.CmdFactory;
 import fyan.cmd_sys.Version;
 
 public class FyanApplication {
@@ -36,12 +37,9 @@ public class FyanApplication {
     //命令中的正则表达式
     public static String REGEX;
 
-
     public static void main(String... args) {
 
-
         handle(filterCommand(args));
-
     }
 
 
@@ -65,12 +63,12 @@ public class FyanApplication {
     public static void handle(String... args) {
 
         try {
-            CommandBase cmd;
+            CmdBase cmd;
 
             //命令判误
             if (args.length == 0)
                 cmd = new Version();
-            else cmd = CommandFactory.builder(args[0]);
+            else cmd = CmdFactory.builder(args[0]);
 
             //执行命令
             int resCode = cmd.resInfo(args);

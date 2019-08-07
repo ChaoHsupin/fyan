@@ -30,7 +30,7 @@ import java.io.File;
 
 public class FileFilter {
 
-    public static void fileDeal(FileNameDealInterface fileNameDeal) {
+    public static void fileDeal(FileDeal fileNameDeal) {
 
         File currentDirectory = new File(FyanApplication.LOCAL_PATH);
         File[] childs = currentDirectory.listFiles();

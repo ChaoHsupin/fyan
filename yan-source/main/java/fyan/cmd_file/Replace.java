@@ -25,14 +25,14 @@
 package fyan.cmd_file;
 
 import fyan.FyanApplication;
-import fyan.base.CommandBase;
+import fyan.base.CmdBase;
 import fyan.base.FileFilter;
 
 import java.io.File;
 import java.io.IOException;
 
 //      -r | -replace [regex] [replacement]
-public class Replace implements CommandBase {
+public class Replace implements CmdBase {
     public int resInfo(String[] args) throws IOException {
 
         String regex = args[1];

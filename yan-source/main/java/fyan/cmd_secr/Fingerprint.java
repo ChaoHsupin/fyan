@@ -26,14 +26,14 @@ package fyan.cmd_secr;
 
 
 import fyan.FyanApplication;
-import fyan.base.CommandBase;
+import fyan.base.CmdBase;
 
 import java.io.*;
 import java.security.MessageDigest;
 
 //      -f | --finger <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName>
 //      -f | --finger -c|--compared <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName> <fingerPrint>
-public class Fingerprint implements CommandBase {
+public class Fingerprint implements CmdBase {
     public int resInfo(String[] args) throws IOException {
 
         return (args[1].equals("-c") || args[1].startsWith("--c")) ? CompareFinger(args) : createFinger(args);

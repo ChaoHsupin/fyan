@@ -42,37 +42,38 @@ The java file logically receives the user's parameter information, so in the jav
 
 #### Folder Processing
 ```cmd
- You can add grep [regex] to the regular tail of the command.
+	修改语句尾部可添加 grep <regex> 做正则筛选
 
- -a | --append [pre|suf] <constName> Modify file prefix or suffix
- 
- -c | --create [total] <constName> [value + step + digits] <a/d> Create and name a folder
- 
- -c | --create -l [dictionaryName...] Create a folder as a constant
- 
- -r | --replace [regex] [replacement] Regularly modify the file name
- 
- -s | --Substr <beginIndex> [endIndex] Intercept file name
-```
+	修改文件前缀或后缀
+	append <pre|suf> <constName>
 
+	创建及命名文件夹
+	create <total> [constName] <进值+步长+位数> [asc|desc]
 
-#### Summary Algorithm
-```cmd
- -f | --finger <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName> Calculates the file summary with the specified algorithm
+	创建文件夹以常量的方式
+	create -l <dictionaryName...>
 
- -f | --finger -c|--compared <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName> <fingerPrint> Contrast summary, file tamper resistance
-```
+	正则修改文件名
+	replace <regex> <replacement>
 
-#### download file
-```cmd
- -d | --download <url> [filename] url link download file
-```
+	截取文件名
+	substr <beginIndex> [endIndex]
 
-#### 其它
-```cmd
- -h | --help command help
+	以指定算法计算文件摘要
+	finger <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName>
 
- -v | --version version
+	对比摘要，文件防篡改
+	finger <-c|--compared> <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName> <fingerPrint>
+
+	url链接下载文件
+	download <url> [文件名]
+
+	命令帮助
+	help
+
+	版本
+	version
+
 ```
 # 中文文档
 ## 简述
@@ -101,40 +102,39 @@ Java version must be greater than 1.8
 java文件顺理成章的收到了用户的参数信息，于是在java代码中通过逻辑控制等一系列操作完成对整条命令的执行。
 
 ##命令解读
-
-#### 文件夹处理
 ```cmd
- 命令尾部都可加上 grep [regex]做正则筛选
+	修改语句尾部可添加 grep <regex> 做正则筛选
 
- -a | --append [pre|suf] <constName> 修改文件前缀或后缀
- 
- -c | --create [total] <constName> [进值+步长+位数] <a/d> 创建及命名文件夹
- 
- -c | --create -l [dictionaryName...] 创建文件夹以常量的方式
- 
- -r | --replace [regex] [replacement] 正则修改文件名
- 
- -s | --Substr <beginIndex> [endIndex] 截取文件名
-```
+	修改文件前缀或后缀
+	append <pre|suf> <constName>
 
+	创建及命名文件夹
+	create <total> [constName] <进值+步长+位数> [asc|desc]
 
-#### 摘要算法
-```cmd
- -f | --finger <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName> 以指定算法计算文件摘要
+	创建文件夹以常量的方式
+	create -l <dictionaryName...>
 
- -f | --finger -c|--compared <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName> <fingerPrint> 对比摘要，文件防篡改
-```
+	正则修改文件名
+	replace <regex> <replacement>
 
-#### 下载文件
-```cmd
- -d | --download <url> [文件名] url链接下载文件
-```
+	截取文件名
+	substr <beginIndex> [endIndex]
 
-#### 其它
-```cmd
- -h | --help 命令帮助
+	以指定算法计算文件摘要
+	finger <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName>
 
- -v | --version 版本
+	对比摘要，文件防篡改
+	finger <-c|--compared> <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName> <fingerPrint>
+
+	url链接下载文件
+	download <url> [文件名]
+
+	命令帮助
+	help
+
+	版本
+	version
+
 ```
 
 

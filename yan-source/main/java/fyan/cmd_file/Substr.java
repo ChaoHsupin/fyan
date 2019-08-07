@@ -25,13 +25,13 @@
 package fyan.cmd_file;
 
 import fyan.FyanApplication;
-import fyan.base.CommandBase;
+import fyan.base.CmdBase;
 
 import java.io.File;
 import java.io.IOException;
 
 //      -s | --Substr <beginIndex> [endIndex]
-public class Substr implements CommandBase {
+public class Substr implements CmdBase {
 
     public int resInfo(String[] args) throws IOException {
 

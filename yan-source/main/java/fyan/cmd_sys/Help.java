@@ -24,33 +24,44 @@
 
 package fyan.cmd_sys;
 
-import fyan.base.CommandBase;
+import fyan.base.CmdBase;
 
 //      -h | -help
-public class Help implements CommandBase {
+public class Help implements CmdBase {
 
     public int resInfo(String[] args) {
         System.out.print(
-                "\t 修改语句尾部可添加 grep [regex] 做正则筛选\n" +
-                "\t -a | --append [pre|suf] <constName> 修改文件前缀或后缀\n" +
-                "\t \n" +
-                "\t -c | --create [total] <constName> [进值+步长+位数] <asc|desc> 创建及命名文件夹\n" +
-                "\t \n" +
-                "\t -c | --create -l [dictionaryName...] 创建文件夹以常量的方式\n" +
-                "\t \n" +
-                "\t -r | --replace [regex] [replacement] 正则修改文件名\n" +
-                "\t \n" +
-                "\t -s | --substr <beginIndex> [endIndex] 截取文件名\n" +
-                "\n" +
-                "\t -f | --finger <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName> 以指定算法计算文件摘要\n" +
-                "\n" +
-                "\t -f | --finger -c|--compared <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName> <fingerPrint> 对比摘要，文件防篡改\n" +
-                "\n" +
-                "\t -d | --download <url> [文件名] url链接下载文件\n" +
-                "\n" +
-                "\t -h | --help 命令帮助\n" +
-                "\n" +
-                "\t -v | --version 版本");
+                "\t修改语句尾部可添加 grep <regex> 做正则筛选\n" +
+                        "\n" +
+                        "\t修改文件前缀或后缀\n" +
+                        "\tappend <pre|suf> <constName>\n" +
+                        "\n" +
+                        "\t创建及命名文件夹\n" +
+                        "\tcreate <total> [constName] <进值+步长+位数> [asc|desc]\n" +
+                        "\n" +
+                        "\t创建文件夹以常量的方式\n" +
+                        "\tcreate -l <dictionaryName...>\n" +
+                        "\n" +
+                        "\t正则修改文件名\n" +
+                        "\treplace <regex> <replacement>\n" +
+                        "\n" +
+                        "\t截取文件名\n" +
+                        "\tsubstr <beginIndex> [endIndex]\n" +
+                        "\n" +
+                        "\t以指定算法计算文件摘要\n" +
+                        "\tfinger <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName>\n" +
+                        "\n" +
+                        "\t对比摘要，文件防篡改\n" +
+                        "\tfinger <-c|--compared> <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName> <fingerPrint>\n" +
+                        "\n" +
+                        "\turl链接下载文件\n" +
+                        "\tdownload <url> [文件名]\n" +
+                        "\n" +
+                        "\t命令帮助\n" +
+                        "\thelp\n" +
+                        "\n" +
+                        "\t版本\n" +
+                        "\tversion");
         return 0;
     }
 }

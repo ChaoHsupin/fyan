@@ -22,9 +22,8 @@
  * SOFTWARE.
  */
 
-package fyan;
+package fyan.base;
 
-import fyan.base.CommandBase;
 import fyan.cmd_down.Down;
 import fyan.cmd_file.Append;
 import fyan.cmd_file.Create;
@@ -36,44 +35,36 @@ import fyan.cmd_sys.Version;
 
 
 //工厂模式创建命令执行对象
-public class CommandFactory {
+public class CmdFactory {
 
-    public static CommandBase builder(String cmdPre) {
+    public static CmdBase builder(String cmdPre) {
 
-        CommandBase cmd = null;
+        CmdBase cmd = null;
 
         //注册指令
         switch (cmdPre) {
-            case "-h":
-            case "--help":
+            case "help":
                 cmd = new Help();
                 break;
-            case "-c":
-            case "-create":
+            case "create":
                 cmd = new Create();
                 break;
-            case "-s":
-            case "-substr":
+            case "substr":
                 cmd = new Substr();
                 break;
-            case "-r":
-            case "--replace":
+            case "replace":
                 cmd = new Replace();
                 break;
-            case "-a":
-            case "--append":
+            case "append":
                 cmd = new Append();
                 break;
-            case "-f":
-            case "--finger":
+            case "finger":
                 cmd = new Fingerprint();
                 break;
-            case "-d":
-            case "--down":
+            case "down":
                 cmd = new Down();
                 break;
-            case "-v":
-            case "--version":
+            case "version":
                 cmd = new Version();
                 break;
         }

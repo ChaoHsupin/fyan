@@ -24,10 +24,10 @@
 
 package fyan.cmd_sys;
 
-import fyan.base.CommandBase;
+import fyan.base.CmdBase;
 
 //      -v | -version
-public class Version implements CommandBase {
+public class Version implements CmdBase {
     public int resInfo(String[] args) {
 
         System.out.print(
