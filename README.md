@@ -42,37 +42,37 @@ The java file logically receives the user's parameter information, so in the jav
 
 #### Folder Processing
 ```cmd
-	修改语句尾部可添加 grep <regex> 做正则筛选
+	 Modify the end of the statement to add grep <regex> to do regular filtering
+     
+         Modify file prefix or suffix
+         Append <pre|suf> <constName>
 
-	修改文件前缀或后缀
-	append <pre|suf> <constName>
+         Create and name folders
+         Create <total> [constName] <input + step + digits> [asc|desc]
 
-	创建及命名文件夹
-	create <total> [constName] <进值+步长+位数> [asc|desc]
+         Create a folder in a constant way
+         Create <-l|--list> <name...>
 
-	创建文件夹以常量的方式
-	create -l <dictionaryName...>
+         Regularly modify the file name
+         Replace <regex> <replacement>
 
-	正则修改文件名
-	replace <regex> <replacement>
+         Intercept file name
+         Substr <beginIndex> [endIndex]
 
-	截取文件名
-	substr <beginIndex> [endIndex]
+         Calculate the file summary with the specified algorithm
+         Finger <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName>
 
-	以指定算法计算文件摘要
-	finger <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName>
+         Comparative summary, document tampering
+         Finger <-c|--compared> <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName> <fingerPrint>
 
-	对比摘要，文件防篡改
-	finger <-c|--compared> <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName> <fingerPrint>
+         Url link download file, can be renamed, recommended not renamed
+         Down <url> [fileName]
 
-	url链接下载文件
-	download <url> [文件名]
+         Command help
+         Help
 
-	命令帮助
-	help
-
-	版本
-	version
+         version
+         Version
 
 ```
 # 中文文档
@@ -103,38 +103,37 @@ java文件顺理成章的收到了用户的参数信息，于是在java代码中
 
 ##命令解读
 ```cmd
-	修改语句尾部可添加 grep <regex> 做正则筛选
+	 修改语句尾部可添加 grep <regex> 做正则筛选
+    
+    修改文件前缀或后缀
+    append <pre|suf> <constName>
 
-	修改文件前缀或后缀
-	append <pre|suf> <constName>
+    创建及命名文件夹
+    create <total> [constName] <进值+步长+位数> [asc|desc]
 
-	创建及命名文件夹
-	create <total> [constName] <进值+步长+位数> [asc|desc]
+    创建文件夹以常量的方式
+    create <-l|--list> <name...>
 
-	创建文件夹以常量的方式
-	create -l <dictionaryName...>
+    正则修改文件名
+    replace <regex> <replacement>
 
-	正则修改文件名
-	replace <regex> <replacement>
+    截取文件名
+    substr <beginIndex> [endIndex]
 
-	截取文件名
-	substr <beginIndex> [endIndex]
+    以指定算法计算文件摘要
+    finger <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName>
 
-	以指定算法计算文件摘要
-	finger <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName>
+    对比摘要，文件防篡改
+    finger <-c|--compared> <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName> <fingerPrint>
 
-	对比摘要，文件防篡改
-	finger <-c|--compared> <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName> <fingerPrint>
+    url链接下载文件,可重命名,推荐不重命名
+    down <url> [fileName]
 
-	url链接下载文件
-	download <url> [文件名]
+    命令帮助
+    help
 
-	命令帮助
-	help
-
-	版本
-	version
-
+    版本
+    version
 ```
 
 
