@@ -45,34 +45,34 @@ The java file logically receives the user's parameter information, so in the jav
 	 Modify the end of the statement to add grep <regex> to do regular filtering
      
          Modify file prefix or suffix
-         Append <pre|suf> <constName>
+         append <pre|suf> <constName>
 
          Create and name folders
-         Create <total> [constName] <input + step + digits> [asc|desc]
+         create <total> [constName] <input + step + digits> [asc|desc]
 
          Create a folder in a constant way
-         Create <-l|--list> <name...>
+         create <-l|--list> <name...>
 
          Regularly modify the file name
-         Replace <regex> <replacement>
+         rplace <regex> <replacement>
 
          Intercept file name
-         Substr <beginIndex> [endIndex]
+         substr <beginIndex> [endIndex]
 
          Calculate the file summary with the specified algorithm
-         Finger <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName>
+         finger <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName>
 
          Comparative summary, document tampering
-         Finger <-c|--compared> <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName> <fingerPrint>
+         finger <-c|--compared> <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName> <fingerPrint>
 
          Url link download file, can be renamed, recommended not renamed
-         Down <url> [fileName]
+         down <url> [fileName]
 
          Command help
-         Help
+         help
 
+         lookup version
          version
-         Version
 
 ```
 # 中文文档
