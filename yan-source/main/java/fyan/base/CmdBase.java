@@ -27,6 +27,7 @@ package fyan.base;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 
+//策略模式
 public interface CmdBase {
 
     int resInfo(String[] args) throws IOException, NoSuchAlgorithmException;

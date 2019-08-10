@@ -32,11 +32,11 @@ import java.io.File;
 import java.io.IOException;
 
 //      -c | --create [total] <constName> [进值+步长+位数] <a/d>
-//      -c | --create -l [dictionaryName...]
+//      -c | --create <-l|--list> [dictionaryName...]
 public class Create implements CmdBase {
     public int resInfo(String[] args) throws IOException {
 
-        return args[1].equals("-l") ? createList(args) : create(args);
+        return args[1].startsWith("-l")||args[1].startsWith("--list") ? createList(args) : create(args);
     }
 
     private int createList(String[] args) {

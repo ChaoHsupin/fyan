@@ -38,7 +38,6 @@ public class Replace implements CmdBase {
         String regex = args[1];
         String replacement = args[2];
 
-
         FileFilter.fileDeal((child, currentName) -> {
             currentName = currentName.replaceFirst(regex, replacement);
             child.renameTo(new File(FyanApplication.LOCAL_PATH + currentName));

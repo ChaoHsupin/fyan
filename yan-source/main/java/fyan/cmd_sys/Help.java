@@ -40,7 +40,7 @@ public class Help implements CmdBase {
                         "\tcreate <total> [constName] <进值+步长+位数> [asc|desc]\n" +
                         "\n" +
                         "\t创建文件夹以常量的方式\n" +
-                        "\tcreate -l <dictionaryName...>\n" +
+                        "\tcreate <-l|--list> <name...>\n" +
                         "\n" +
                         "\t正则修改文件名\n" +
                         "\treplace <regex> <replacement>\n" +
@@ -54,14 +54,14 @@ public class Help implements CmdBase {
                         "\t对比摘要，文件防篡改\n" +
                         "\tfinger <-c|--compared> <MD5|SHA-1|SHA-256|SHA-384|SHA-512> <fileName> <fingerPrint>\n" +
                         "\n" +
-                        "\turl链接下载文件\n" +
-                        "\tdownload <url> [文件名]\n" +
+                        "\turl链接下载文件,可重命名,推荐不重命名\n" +
+                        "\tdown <url> [fileName]\n" +
                         "\n" +
                         "\t命令帮助\n" +
                         "\thelp\n" +
                         "\n" +
                         "\t版本\n" +
-                        "\tversion");
+                        "\tversion\n");
         return 0;
     }
 }

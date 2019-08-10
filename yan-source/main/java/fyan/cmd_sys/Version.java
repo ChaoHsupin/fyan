@@ -32,7 +32,7 @@ public class Version implements CmdBase {
 
         System.out.print(
                 "Welcome\n" +
-                "Version 1.1.0\n" +
+                "Version 19.8.10\n" +
                 "Java version requirements are greater than 12\n");
         return 0;
     }

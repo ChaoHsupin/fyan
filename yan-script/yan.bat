@@ -31,4 +31,5 @@
 @set input6=%6%
 @set input7=%7%
 @set input8=%8%
-@java -jar "%~dp0\fyan.jar" "%cd%" %input1% %input2% %input3% %input4% %input5% %input6% %input7% %input8%
+@set input9=%9%
+@java -jar "%~dp0\fyan.jar" "%cd%" %input1% %input2% %input3% %input4% %input5% %input6% %input7% %input8% %input9%

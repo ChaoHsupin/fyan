@@ -63,7 +63,6 @@ public class BinaryConver {
 
         String res = transform(num, n);
 
-        System.out.println(res.length());
         int len=res.length();
         if (len > bit) return res;
         else for (int i = 0; i < bit - len; i++)
