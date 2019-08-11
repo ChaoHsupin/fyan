@@ -27,6 +27,7 @@ package fyan.cmd_file;
 import fyan.FyanApplication;
 import fyan.base.CmdBase;
 import fyan.units.BinaryConver;
+import fyan.units.ProgressBar;
 
 import java.io.File;
 import java.io.IOException;
@@ -36,13 +37,20 @@ import java.io.IOException;
 public class Create implements CmdBase {
     public int resInfo(String[] args) throws IOException {
 
-        return args[1].startsWith("-l")||args[1].startsWith("--list") ? createList(args) : create(args);
+
+        return args[1].startsWith("-l") || args[1].startsWith("--list") ? createList(args) : create(args);
     }
 
     private int createList(String[] args) {
+
+        ProgressBar progressBar = ProgressBar.builder()
+                .setCapacity(args.length - 2)
+                .build();
+
         for (int i = 2; i < args.length; i++) {
             File file = new File(FyanApplication.LOCAL_PATH + args[i]);
             file.mkdir();
+            progressBar.update(i - 1);
         }
         return 0;
     }
@@ -64,13 +72,17 @@ public class Create implements CmdBase {
         for (String str : args[3].trim().split("\\+"))
             namingRules[index++] = Integer.valueOf(str);
 
+        ProgressBar progressBar = ProgressBar.builder()
+                .setCapacity(fileTotal)
+                .build();
+
         for (int i = 0; i < fileTotal; i++) {
             String name = sort == "desc" ? BinaryConver.transform(i * namingRules[1], namingRules[0], namingRules[2]) + constName
                     : constName + BinaryConver.transform(i * namingRules[1], namingRules[0], namingRules[2]);
             File file = new File(FyanApplication.LOCAL_PATH + name);
             file.mkdir();
+            progressBar.update(i+1);
         }
-
 
         return 0;
     }

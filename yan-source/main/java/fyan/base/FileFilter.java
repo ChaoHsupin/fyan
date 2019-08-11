@@ -25,6 +25,7 @@
 package fyan.base;
 
 import fyan.FyanApplication;
+import fyan.units.ProgressBar;
 
 import java.io.File;
 
@@ -35,13 +36,21 @@ public class FileFilter {
         File currentDirectory = new File(FyanApplication.LOCAL_PATH);
         File[] childs = currentDirectory.listFiles();
 
+        ProgressBar progressBar = ProgressBar.builder()
+                .setCapacity(childs.length)
+                .build();
+        int progressCount=0;
+
         for (File child : childs) {
+
             String currentName = child.getName();
 
             if (FyanApplication.REGEX != null && !currentName.matches(FyanApplication.REGEX))
                 continue;
 
             fileNameDeal.deal(child, currentName);
+
+            progressBar.update(++progressCount);
         }
     }
 

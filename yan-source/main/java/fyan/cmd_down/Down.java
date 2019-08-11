@@ -27,12 +27,15 @@ package fyan.cmd_down;
 import fyan.FyanApplication;
 import fyan.base.CmdBase;
 import fyan.units.DownUnits;
+import fyan.units.ProgressBar;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 
 //      -d | --download <url> [文件名]
 public class Down implements CmdBase {
+
+    volatile int time=3000;
 
     @Override
     public int resInfo(String[] args) throws IOException, NoSuchAlgorithmException {
@@ -42,7 +45,38 @@ public class Down implements CmdBase {
 
         fileName =args.length > 2?args[2]:fileName;
 
+        ProgressBar progressBar = ProgressBar.builder()
+                .setCapacity(100)
+                .build();
+
+        Thread processThread=new Thread(()->{
+
+            for(int u=1;u<=99;u++){
+                try {
+                    Thread.sleep(time);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                if(time==3000&&u>30)
+                    time=60000;
+                progressBar.update(u);
+            }
+
+        });
+        processThread.start();
+
         DownUnits.downloadByNIO2(url, FyanApplication.LOCAL_PATH, fileName);
+
+        time=10;
+        try {
+            processThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        progressBar.update(100);
+
+
 
         return 0;
     }

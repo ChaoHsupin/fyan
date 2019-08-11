@@ -26,6 +26,7 @@ package fyan.cmd_file;
 
 import fyan.FyanApplication;
 import fyan.base.CmdBase;
+import fyan.units.ProgressBar;
 
 import java.io.File;
 import java.io.IOException;
@@ -40,10 +41,18 @@ public class Substr implements CmdBase {
 
         File currentDirectory = new File(FyanApplication.LOCAL_PATH);
         File[] childs = currentDirectory.listFiles();
+
+        ProgressBar progressBar = ProgressBar.builder()
+                .setCapacity(childs.length)
+                .build();
+        int progressCount=0;
+
         for (File child : childs) {
             String currentName = child.getName();
             currentName=currentName.substring(beginIndex, endIndex == 0 ? currentName.length() : endIndex);
             child.renameTo(new File(FyanApplication.LOCAL_PATH + currentName));
+
+            progressBar.update(++progressCount);
         }
         return 0;
     }
