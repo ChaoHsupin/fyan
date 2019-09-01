@@ -27,7 +27,6 @@ package fyan.cmd_file;
 import fyan.FyanApplication;
 import fyan.base.CmdBase;
 import fyan.base.FileFilter;
-import fyan.units.ProgressBar;
 
 import java.io.File;
 import java.io.IOException;
